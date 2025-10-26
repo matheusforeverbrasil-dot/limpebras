@@ -1,0 +1,516 @@
+/* ======================================= */
+/* === PALETA DE CORES (VARS) === */
+/* ======================================= */
+:root {
+    /* Cores Primárias (Azul) */
+    --primary-blue: #007bff;
+    --light-blue: #e0f0ff;      /* Azul Claro */
+    --semi-light-blue: rgba(0, 123, 255, 0.1); /* Semi Transparência Azul */
+    --dark-blue: #0056b3;
+
+    /* Cores Secundárias (Verde) */
+    --primary-green: #28a745;
+    --light-green: #e6fae9;     /* Verde Claro */
+    --semi-light-green: rgba(40, 167, 69, 0.1); /* Semi Transparência Verde */
+    --dark-green: #1e7e34;
+
+    /* Cores de Alerta (Suavizadas com transparência no BG) */
+    --status-critico-bg: rgba(255, 107, 107, 0.15); /* Vermelho + Transparência */
+    --status-alerta-bg: rgba(255, 204, 0, 0.15); /* Amarelo + Transparência */
+    --status-ok-bg: rgba(25, 135, 84, 0.1); /* Verde Sutil + Transparência */
+    
+    --status-critico-text: #dc3545; /* Vermelho forte */
+    --status-alerta-text: #ffc107; /* Amarelo forte */
+    --status-ok-text: #198754;      /* Verde Forte */
+
+    /* Cores Neutras */
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --border-color: #dee2e6;
+    --light-border: #e9ecef;
+    --main-bg-gradient: linear-gradient(135deg, var(--light-blue) 0%, var(--light-green) 100%);
+}
+
+/* ======================================= */
+/* === ESTILOS GERAIS E FUNDO COM GRADIENTE === */
+/* ======================================= */
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+    /* Fundo bonito com gradiente de azul claro para verde claro */
+    background: var(--main-bg-gradient);
+    background-attachment: fixed; 
+    margin: 0; 
+    padding: 0; 
+    color: var(--text-color);
+    line-height: 1.5;
+}
+.container { 
+    max-width: 1300px; 
+    margin: 20px auto; 
+    padding: 0 20px; 
+    /* Fundo semi-transparente branco para o conteúdo principal */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding-bottom: 30px; 
+    min-height: 85vh; /* Garante que o gradiente apareça */
+}
+h2 { 
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 8px; 
+    margin-top: 30px; 
+    padding-top: 15px; 
+    font-size: 1.6rem;
+    color: var(--dark-blue);
+}
+
+/* ======================================= */
+/* === MENU FIXO (HEADER.PHP) === */
+/* ======================================= */
+
+/* 1. Estrutura e Fixação */
+.main-menu-fixed {
+    background-color: white; 
+    border-bottom: 2px solid var(--primary-blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 1000; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+}
+
+.menu-content-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px; 
+}
+
+/* Espaçador: Impede que o conteúdo seja escondido pelo menu fixo */
+.menu-spacer {
+    height: 55px;
+}
+
+/* Logo */
+.logo a {
+    color: var(--primary-blue);
+    font-size: 1.4em;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+.logo a i {
+    margin-right: 8px;
+}
+
+/* 2. Links Principais */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links > li {
+    position: relative;
+    height: 100%;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 15px 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a i {
+    margin-right: 6px;
+    font-size: 1.1em;
+}
+
+.nav-links a:hover,
+.nav-links .active > a,
+.nav-links .dropbtn:hover {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+/* 3. Dropdown (Submenus) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1001; 
+    top: 55px; 
+    left: 0;
+    border-top: 2px solid var(--primary-green);
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-green); 
+    color: var(--dark-green);
+}
+
+/* Mostra o dropdown ao passar o mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Esconde a seta do dropdown nos links internos */
+.dropdown-content a i {
+    display: none;
+}
+
+/* ======================================= */
+/* === BARRA DE AÇÕES E BOTÕES === */
+/* ================================================================= */
+.actions-bar { 
+    margin-top: 25px; 
+    margin-bottom: 25px; 
+    display: flex; 
+    justify-content: flex-start; 
+    gap: 12px; 
+}
+.btn { 
+    padding: 10px 18px; 
+    border-radius: 20px; 
+    text-decoration: none; 
+    color: white; 
+    font-weight: 600; 
+    transition: all 0.2s ease-in-out; 
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9em; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.btn i { margin-right: 8px; }
+.btn-primary { background-color: var(--primary-blue); border: 1px solid var(--primary-blue); }
+.btn-secondary { background-color: var(--primary-green); border: 1px solid var(--primary-green); }
+.btn-primary:hover { 
+    background-color: var(--dark-blue); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary:hover { 
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ======================================= */
+/* === TABELA DE EPIS - REFINAMENTO VISUAL === */
+/* ======================================= */
+.epi-table { 
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 0;
+    margin-top: 20px; 
+    background-color: white; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+/* CORRIGE QUEBRA DE LINHA NO CABEÇALHO */
+.epi-table th { 
+    padding: 10px 15px; 
+    background-color: var(--light-blue); 
+    color: var(--dark-blue); 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    font-size: 0.75em; 
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap; /* IMPEDE A QUEBRA DE LINHA */
+    letter-spacing: 0.5px;
+}
+
+.epi-table td { 
+    padding: 10px 15px; 
+    border-bottom: 1px solid var(--light-border);
+    text-align: left; 
+    font-size: 0.9em; 
+}
+.epi-table tbody tr:hover { 
+    background-color: var(--semi-light-green); /* Hover suave */
+}
+
+/* ======================================= */
+/* === REFINAMENTO DOS STATUS (Badges) === */
+/* ======================================= */
+
+.status-cell {
+    white-space: nowrap; 
+}
+
+/* Estilo Base do Badge de Status */
+.status-badge {
+    display: inline-flex; 
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+    gap: 5px; /* Espaço entre o ícone e o texto */
+    
+    padding: 4px 10px;
+    border-radius: 12px; 
+    font-size: 0.85em; 
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+/* Ajuste de tamanho para os ícones Font Awesome */
+.status-badge i.fa-fw {
+    font-size: 1em; /* Tamanho consistente para todos os ícones */
+    width: 1.2857142857em; 
+    text-align: center;
+}
+
+/* 1. Status Crítico */
+.status-critico .status-badge {
+    background-color: var(--status-critico-bg);
+    color: var(--status-critico-text);
+    border: 1px solid rgba(220, 53, 69, 0.4); 
+}
+.epi-table tr.status-critico { 
+    background-color: var(--status-critico-bg) !important; 
+}
+
+/* 2. Status Alerta */
+.status-alerta .status-badge {
+    background-color: var(--status-alerta-bg);
+    color: var(--status-alerta-text);
+    border: 1px solid rgba(255, 193, 7, 0.5);
+}
+.epi-table tr.status-alerta {
+    background-color: var(--status-alerta-bg);
+}
+
+/* 3. Status OK */
+.status-ok .status-badge {
+    background-color: var(--status-ok-bg);
+    color: var(--status-ok-text);
+    border: 1px solid rgba(25, 135, 84, 0.4);
+}
+
+/* ======================================= */
+/* === ÍCONES DE AÇÃO (Botões transparentes) === */
+/* ======================================= */
+.epi-table td.action-icons {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.epi-table td.action-icons a {
+    color: var(--primary-blue); 
+    font-size: 1.1em;
+    margin: 0 4px;
+    padding: 6px 9px;
+    border-radius: 50%; 
+    transition: background-color 0.2s, color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.epi-table td.action-icons a:hover {
+    background-color: var(--semi-light-blue); 
+    color: var(--dark-blue);
+}
+
+/* ======================================= */
+/* === RESPONSIVIDADE (Menu) === */
+/* ======================================= */
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none; 
+    }
+    .menu-content-container {
+        justify-content: center;
+    }
+}
+/* ======================================= */
+/* === FOOTER FINO, FIXO E TRANSPARENTE === */
+/* ======================================= */
+
+/* O espaçador empurra o conteúdo da página para que o rodapé fixo não o cubra */
+.footer-spacer {
+    height: 40px; /* Altura ajustada para acomodar o novo tamanho da logo */
+}
+
+.main-footer-fixed {
+    /* POSIÇÃO FIXA E INFERIOR */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* ESTILO FINO E TRANSPARENTE */
+    /* Dark Blue: #0056b3 (var(--dark-blue)) com 90% de opacidade */
+    background-color: rgba(0, 86, 179, 0.9); 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    z-index: 999; 
+    height: 40px; /* Altura fixa e FINA */
+}
+
+.main-footer-fixed .footer-content-container {
+    max-width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    font-size: 0.8em;
+}
+
+/* --- 1. LOGO E TAG (ESQUERDA) --- */
+.footer-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+    /* Define a largura para 20% do container */
+    flex-basis: 20%; 
+}
+
+.footer-logo-mini {
+    /* TAMANHO FIXO DA IMAGEM */
+    width: 140px; 
+    height: 30px; 
+    object-fit: contain; /* Garante que a imagem se ajuste sem distorção excessiva */
+    padding: 2px;
+    border-radius: 3px;
+}
+.system-tag {
+    opacity: 0.8;
+}
+
+/* --- 2. DESENVOLVEDOR (CENTRO) --- */
+.developer-area-fixed {
+    /* Define a largura para 30% do container */
+    flex-basis: 30%; 
+    /* Centraliza o conteúdo dentro da sua flex-basis */
+    justify-content: center; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.developed-by {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.linkedin-link-fixed {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    font-size: 0.9em;
+}
+.linkedin-link-fixed i {
+    color: #fff; 
+    margin-right: 5px;
+}
+.linkedin-link-fixed:hover {
+    color: var(--primary-green);
+}
+
+/* --- 3. MENSAGEM MOTIVACIONAL (DIREITA E ROLANDO) --- */
+.motivational-area-fixed {
+    /* Define a largura para 50% do container, ocupando o restante */
+    flex-basis: 50%;
+    overflow: hidden; 
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinha o bloco de rolagem à direita */
+    padding: 0 10px;
+}
+
+.message-scroll-track {
+    white-space: nowrap; 
+    /* O bloco começa fora da área visível (direita) */
+    transform: translateX(100%); 
+    display: inline-block;
+    
+    /* APLICA A ANIMAÇÃO DE SCROLL INFINITO */
+    animation: scroll-left 30s linear infinite; 
+}
+
+.message-content {
+    color: var(--light-green); 
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+/* Define a animação de rolagem (da direita para a esquerda) */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+
+/* RESPONSIVIDADE: Oculta elementos em telas pequenas */
+@media (max-width: 900px) {
+    /* Oculta o container de rolagem em telas médias */
+    .motivational-area-fixed {
+        display: none;
+    }
+    /* Permite que o bloco do desenvolvedor ocupe mais espaço */
+    .developer-area-fixed {
+        flex-basis: 40%;
+    }
+    .footer-logo-area {
+        flex-basis: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-footer-fixed {
+        height: 50px; /* Aumenta a altura para evitar quebras de linha forçadas */
+    }
+    .main-footer-fixed .footer-content-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+    /* Layout empilhado em mobile */
+    .footer-logo-area, .developer-area-fixed {
+        flex-basis: 100%;
+        gap: 5px;
+        justify-content: center;
+        width: 100%;
+    }
+    .footer-logo-area {
+        height: 22px; /* Altura forçada para alinhar */
+    }
+}

@@ -1,0 +1,256 @@
+/* =======================================================
+// ESTILOS GERAIS DE LAYOUT E TIPOGRAFIA
+// ======================================================= */
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f4f7f6; 
+    color: #343a40;
+    margin: 0; 
+    padding-top: 20px; 
+}
+
+.container { 
+    width: 95%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #495057;
+    margin-top: 20px;
+}
+
+
+/* =======================================================
+// ESTILOS DE ALERTAS (MENSAGENS DE STATUS)
+// ======================================================= */
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-error {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+
+/* =======================================================
+// ESTILOS DOS BOTÕES (VISIBILIDADE E CORES)
+// ======================================================= */
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px 2px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, opacity 0.3s;
+    line-height: 1; /* Ajuda a compactar botões com ícones */
+}
+
+/* --- Botão Principal --- */
+.btn-primary {
+    background-color: #007bff; /* Azul */
+    color: white;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* --- Botão Principal Alternativo (Filtro) --- */
+.btn-primary-alt {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border-color: #28a745;
+}
+.btn-primary-alt:hover {
+    background-color: #1e7e34;
+}
+
+/* --- Botão Secundário --- */
+.btn-secondary {
+    background-color: #6c757d; /* Cinza */
+    color: white;
+    border-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    color: white;
+}
+
+/* --- Botão de Edição --- */
+.btn-edit {
+    background-color: #ffc107; /* Amarelo */
+    color: #343a40; 
+    border-color: #ffc107;
+}
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+/* --- Botão de Movimentação/Troca (Laranja) --- */
+.btn-movement {
+    background-color: #fd7e14; 
+    color: white;
+    border-color: #fd7e14;
+}
+.btn-movement:hover {
+    background-color: #e87e14;
+}
+
+/* --- Botão de Exclusão --- */
+.btn-delete {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+    border-color: #dc3545;
+}
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* --- Botão Pequeno (sm) - Usado na Tabela --- */
+.btn-sm {
+    padding: 4px 6px; /* Padding bem menor */
+    font-size: 12px;
+    margin: 1px 1px; /* Espaçamento mínimo */
+}
+
+
+/* =======================================================
+// ESTILOS DE LAYOUT ESPECÍFICOS E AÇÕES
+// ======================================================= */
+
+/* --- Barra de Ações Superior --- */
+.actions-bar {
+    display: flex; /* Alinha botões lado a lado */
+    gap: 10px; 
+    margin-bottom: 20px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* --- Formulário de Filtro --- */
+.filter-area {
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+}
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.form-control-full {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+.form-control-inline {
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    display: inline-block;
+}
+.btn-clear-filter {
+    margin-left: 10px;
+}
+
+
+/* =======================================================
+// ESTILOS DE TABELA (DATA TABLE)
+// ======================================================= */
+.table-container {
+    overflow-x: auto; /* Garante scroll horizontal em telas pequenas */
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    border-radius: 6px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.data-table th, .data-table td {
+    padding: 8px 10px; /* Reduz o padding vertical para diminuir a altura da linha */
+    border: 1px solid #dee2e6;
+    text-align: left;
+    vertical-align: middle; /* Centraliza o conteúdo verticalmente */
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #495057;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* --- ESTILO PARA A COLUNA DE AÇÕES (Botões em linha) --- */
+.action-column {
+    white-space: nowrap; /* IMPEDE A QUEBRA DE LINHA DOS BOTÕES */
+    min-width: 130px; /* Garante espaço para 3 botões pequenos */
+    text-align: center; 
+}
+
+
+/* =======================================================
+// ESTILOS DE BADGES (STATUS DE ESTOQUE/VALIDADE)
+// ======================================================= */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.status-alerta { /* Abaixo do Mínimo */
+    background-color: #ffc107; 
+    color: #343a40;
+}
+.status-critico, .status-vencido { /* Estoque Zero ou CA Vencido */
+    background-color: #dc3545; 
+}
+.status-proximo-venc { /* CA Vencendo em 90 dias */
+    background-color: #fd7e14; 
+}
+.status-ok { /* Estoque OK */
+    background-color: #28a745; 
+}

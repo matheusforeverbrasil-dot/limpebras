@@ -1,0 +1,40 @@
+<footer class="footer fixed-bottom d-flex align-items-center p-2">
+    <!-- Faixas de cor (mantidas da resposta anterior) -->
+    <div class="color-band color-primary"></div>
+    <div class="color-band color-success"></div>
+    <div class="color-band color-info"></div>
+    <div class="color-band color-light-green"></div>
+
+    <!-- Conteúdo principal do rodapé -->
+    <div class="container-fluid d-flex justify-content-between align-items-center h-100 position-absolute">
+        <!-- Coluna do logo (esquerda) -->
+        <div class="d-flex align-items-center">
+            <a href="/">
+                <img src="caminho/para/seu-logo-transparente.png" alt="Logo" class="logo-footer">
+            </a>
+        </div>
+
+        <!-- Coluna de informações do usuário (centro) -->
+        <div class="text-center user-info">
+            <?php
+            // Verifica se as variáveis de sessão para o usuário e nível estão definidas
+            if (isset($_SESSION['usuario_logado']) && isset($_SESSION['nivel_acesso'])) {
+                $usuario = htmlspecialchars($_SESSION['usuario_logado']);
+                $nivel = htmlspecialchars($_SESSION['nivel_acesso']);
+                echo "<span class='d-block d-md-inline-block text-white me-md-3'>Bem-vindo, <b>{$usuario}</b>!</span>";
+                echo "<span class='badge bg-light text-primary'>Nível: {$nivel}</span>";
+            }
+            ?>
+        </div>
+
+        <!-- Coluna do botão SAIR (direita) -->
+        <div class="d-flex align-items-center">
+            <?php
+            // Exibe o botão de sair apenas se o usuário estiver logado
+            if (isset($_SESSION['usuario_logado'])) {
+                echo '<a href="logout.php" class="btn btn-outline-light btn-sm">SAIR</a>';
+            }
+            ?>
+        </div>
+    </div>
+</footer>

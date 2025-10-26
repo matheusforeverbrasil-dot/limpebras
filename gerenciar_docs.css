@@ -1,0 +1,68 @@
+
+    /* Estilos específicos para a tabela de gerenciamento */
+    .btn {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition: background-color 0.3s;
+        margin-right: 5px;
+    }
+    .btn-deletar { background-color: #f44336; color: white; }
+    .btn-deletar:hover { background-color: #d32f2f; }
+    .btn-proteger { background-color: #4CAF50; color: white; }
+    .btn-proteger:hover { background-color: #43a047; }
+    .btn-publico { background-color: #2196F3; color: white; }
+    .btn-publico:hover { background-color: #1e88e5; }
+    .btn-restrito { background-color: #ff9800; color: white; }
+    .btn-restrito:hover { background-color: #fb8c00; }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    tr:hover { background-color: #f1f1f1; }
+
+    .status-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    .status-Publico { background-color: #e3f2fd; color: #1e88e5; }
+    .status-Protegido { background-color: #e8f5e9; color: #43a047; }
+    .status-Restrito { background-color: #fff3e0; color: #fb8c00; }
+    .status-inativo { background-color: #ffebee; color: #d32f2f; text-decoration: line-through; }
+    
+    .alerta-sucesso { 
+        padding: 15px; 
+        background-color: #d4edda; 
+        color: #155724; 
+        border: 1px solid #c3e6cb; 
+        border-radius: 5px; 
+        margin-bottom: 20px; 
+    }
+    .alerta-erro {
+        padding: 15px; 
+        background-color: #f8d7da; 
+        color: #721c24; 
+        border: 1px solid #f5c6cb; 
+        border-radius: 5px; 
+        margin-bottom: 20px; 
+    }
