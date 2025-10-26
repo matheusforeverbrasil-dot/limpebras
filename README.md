@@ -76,5 +76,5 @@ Deploy: Coloque todos os arquivos na raiz do seu servidor web (ou em um subdiret
 
 Acesso: Acesse o arquivo dashboard_colaboradores.php no seu navegador.
 
-http://localhost/seu_projeto/dashboard_colaboradores.php
+http://localhost/seu_projeto/index.php
 Desenvolvido com foco na organização e na conformidade da Segurança e Medicina do Trabalho.
